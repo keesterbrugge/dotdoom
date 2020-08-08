@@ -60,14 +60,13 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 
-
-;; pipe operator for r.
+;; pipe operator for ess (=r)
 (defun tide-insert-pipe ()
   "Insert a %>% and newline"
   (interactive)
   (insert " %>% "))
 
-;; (after! ess
+
 (use-package! ess
   :config
   (map!
@@ -77,3 +76,10 @@
    :map inferior-ess-r-mode-map
    :desc "insert pipe op" "m" 'tide-insert-pipe
    ))
+
+
+;; use xwidget webkit as default browser st view webpages
+;; is done inside buffer. Especially usefull during plotting with oz/plotly
+;; or inspecting dataset with datatable or some web based REBL
+(setq browse-url-browser-function 'xwidget-webkit-browse-url) ; emacs browser
+
