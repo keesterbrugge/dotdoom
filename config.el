@@ -81,5 +81,8 @@
 ;; use xwidget webkit as default browser st view webpages
 ;; is done inside buffer. Especially usefull during plotting with oz/plotly
 ;; or inspecting dataset with datatable or some web based REBL
-(setq browse-url-browser-function 'xwidget-webkit-browse-url) ; emacs browser
-
+(defun my-browse-url (url)
+  (if (file-exists-p url)
+    (xwidget-webkit-browse-url (concat "file://" (expand-file-name url)))
+    (xwidget-webkit-browse-url url))
+  )

@@ -1,4 +1,4 @@
 #!/usr/local/bin/zsh
 
-emacsarg='(progn (xwidget-webkit-browse-url "'"$1"'"))'
+emacsarg='(progn (my-browse-url "'"$1"'"))'
 emacsclient -e "$emacsarg"
